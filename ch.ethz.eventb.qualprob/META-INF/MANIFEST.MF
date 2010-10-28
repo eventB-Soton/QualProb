@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Qualitative Probabilistic Reasoning Plugin
+Bundle-SymbolicName: fr.systerel.rodinextension.sample;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: ch.ethz.eventb.qualprob.QualProbPlugin
+Require-Bundle: org.eventb.core,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: ch.ethz.eventb.qualprob,
+ ch.ethz.eventb.qualprob.basis

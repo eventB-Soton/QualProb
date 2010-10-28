@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.rodinp.core.attributeTypes">
+      <attributeType
+            id="probabilistic"
+            kind="boolean"
+            name="Event-B Probabilistic Attribute">
+      </attributeType>
+   </extension>
+   <extension
+         point="org.rodinp.core.internalElementTypes">
+      <internalElementType
+            class="ch.ethz.eventb.qualprob.basis.Bound"
+            id="bound"
+            name="Event-B Bound Element">
+      </internalElementType>
+      <internalElementType
+            class="ch.ethz.eventb.qualprob.basis.SCBound"
+            id="scBound"
+            name="Event-B Static Checked Bound Element">
+      </internalElementType>
+   </extension>
+   <extension
+         point="org.eventb.core.configurations">
+      <configuration
+            id="qpConfig"
+            name="Qualitative Probabilistic Reasoning Plug-in (SC &amp; POG) Configuration">
+         <scModule
+               id="fr.systerel.rodinextension.sample.machineBoundModule">
+         </scModule>
+         <scModule
+               id="fr.systerel.rodinextension.sample.machineBoundFreeIdentsModule">
+         </scModule>
+         <scModule
+               id="fr.systerel.rodinextension.sample.machineEventProbConvergenceModule">
+         </scModule>
+         <pogModule
+               id="fr.systerel.rodinextension.sample.fwdMachineBoundModule">
+         </pogModule>
+         <pogModule
+               id="fr.systerel.rodinextension.sample.fwdMachineBoundVariantModule">
+         </pogModule>
+         <pogModule
+               id="fr.systerel.rodinextension.sample.fwdMachineEventVariantModule">
+         </pogModule>
+         <pogModule
+               id="fr.systerel.rodinextension.sample.fwdMachineBoundFinitenessModule">
+         </pogModule>
+         <pogModule
+               id="fr.systerel.rodinextension.sample.finPORejectingModule">
+         </pogModule>
+      </configuration>
+   </extension>
+   <extension
+         point="org.eventb.core.scModuleTypes">
+      <processorType
+            class="ch.ethz.eventb.qualprob.sc.modules.MachineBoundModule"
+            id="machineBoundModule"
+            name="Machine SC Bound Module"
+            parent="org.eventb.core.machineModule">
+      </processorType>
+      <filterType
+            class="ch.ethz.eventb.qualprob.sc.modules.MachineBoundFreeIdentsModule"
+            id="machineBoundFreeIdentsModule"
+            name="Machine SC Bound Free Idents Module"
+            parent="fr.systerel.rodinextension.sample.machineBoundModule">
+         <prereq
+               id="org.eventb.core.machineVariantModule">
+         </prereq>
+      </filterType>
+      <filterType
+            class="ch.ethz.eventb.qualprob.sc.modules.MachineEventProbConvergenceModule"
+            id="machineEventProbConvergenceModule"
+            name="Machine SC Event Probabilistic Convergence Module"
+            parent="org.eventb.core.machineEventModule">
+      </filterType>
+   </extension>
+   <extension
+         point="org.eventb.core.pogModuleTypes">
+      <processorType
+            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineBoundModule"
+            id="fwdMachineBoundModule"
+            name="Machine POG Forward Bound Module"
+            parent="org.eventb.core.machineModule">
+         <prereq
+               id="org.eventb.core.fwdMachineCommitHypothesesModule">
+         </prereq>
+      </processorType>
+      <processorType
+            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineBoundVariantModule"
+            id="fwdMachineBoundVariantModule"
+            name="Machine POG Forward Bound Variant Relation Module"
+            parent="org.eventb.core.fwdMachineEventModule">
+         <prereq
+               id="fr.systerel.rodinextension.sample.fwdMachineBoundModule">
+         </prereq>
+         <prereq
+               id="org.eventb.core.fwdMachineEventGuardModule">
+         </prereq>
+         <prereq
+               id="org.eventb.core.fwdMachineEventCommitHypothesesModule">
+         </prereq>
+      </processorType>
+      <processorType
+            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineEventVariantModule"
+            id="fwdMachineEventVariantModule"
+            name="Machine POG Forward Event Variant Module"
+            parent="org.eventb.core.fwdMachineEventModule">
+         <prereq
+               id="org.eventb.core.fwdMachineEventCommitHypothesesModule">
+         </prereq>
+      </processorType>
+      <processorType
+            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineBoundFinitenessModule"
+            id="fwdMachineBoundFinitenessModule"
+            name="Machine POG Forward Bound Finiteness Module"
+            parent="org.eventb.core.machineModule">
+         <prereq
+               id="org.eventb.core.fwdMachineCommitHypothesesModule">
+         </prereq>
+      </processorType>
+      <filterType
+            class="ch.ethz.eventb.qualprob.pog.modules.FinPORejectingFilterModule"
+            id="finPORejectingModule"
+            name="Machine POG Filter FIN PO Rejecting Module"
+            parent="org.eventb.core.fwdMachineVariantModule">
+         <prereq
+               id="fr.systerel.rodinextension.sample.fwdMachineBoundFinitenessModule">
+         </prereq>
+      </filterType>
+   </extension>
+   <extension
+         point="org.eventb.core.pogStateTypes">
+      <stateType
+            class="ch.ethz.eventb.qualprob.pog.states.MachineBoundInfo"
+            id="machineBoundInfo"
+            name="POG Machine Bound Info">
+      </stateType>
+   </extension>
+
+</plugin>
