@@ -19,7 +19,7 @@ import org.osgi.framework.BundleContext;
 public class QualProbUIPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "fr.systerel.rodinextension.sample.ui"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "ch.ethz.eventb.qualprob.ui"; //$NON-NLS-1$
 
 	// The shared instance
 	private static QualProbUIPlugin plugin;

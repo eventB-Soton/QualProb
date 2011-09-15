@@ -20,7 +20,7 @@ import org.eventb.ui.EventBUIPlugin;
 import org.eventb.ui.IEventBSharedImages;
 import org.rodinp.core.IRodinElement;
 
-import fr.systerel.rodinextension.sample.basis.IBound;
+import ch.ethz.eventb.qualprob.basis.IBound;
 
 public class BoundLabelProvider implements ILabelProvider, IImageProvider {
 

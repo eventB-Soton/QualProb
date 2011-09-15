@@ -6,14 +6,14 @@
       <choiceAttribute
             class="ch.ethz.eventb.qualprob.ui.manipulation.ProbabilisticAttributeManipulation"
             expandsHorizontally="false"
-            id="fr.systerel.rodinextension.sample.ui.probabilistic"
+            id="ch.ethz.eventb.qualprob.ui.probabilistic"
             required="true"
-            typeId="fr.systerel.rodinextension.sample.probabilistic">
+            typeId="ch.ethz.eventb.qualprob.probabilistic">
       </choiceAttribute>
       <attributeRelation
             elementTypeId="org.eventb.core.event">
          <attributeReference
-               descriptionId="fr.systerel.rodinextension.sample.ui.probabilistic">
+               descriptionId="ch.ethz.eventb.qualprob.ui.probabilistic">
          </attributeReference>
       </attributeRelation>
       <element
@@ -21,10 +21,10 @@
             imagePath="icons/boundIcon.gif"
             prefix="BOUND"
             prettyPrinter="ch.ethz.eventb.qualprob.ui.prettyprinter.BoundPrettyPrinter"
-            typeId="fr.systerel.rodinextension.sample.bound">
+            typeId="ch.ethz.eventb.qualprob.bound">
       </element>
       <attributeRelation
-            elementTypeId="fr.systerel.rodinextension.sample.bound">
+            elementTypeId="ch.ethz.eventb.qualprob.bound">
          <attributeReference
                column="0"
                descriptionId="org.eventb.ui.expression">
@@ -37,7 +37,7 @@
             parentTypeId="org.eventb.core.machineFile">
          <childType
                priority="65"
-               typeId="fr.systerel.rodinextension.sample.bound">
+               typeId="ch.ethz.eventb.qualprob.bound">
          </childType>
       </childRelation>
    </extension>
@@ -46,7 +46,7 @@
       <navigatorContent
             appearsBefore="fr.systerel.explorer.navigator.content.event"
             contentProvider="ch.ethz.eventb.qualprob.ui.navigator.contentProviders.BoundContentProvider"
-            id="fr.systerel.rodinextension.sample.ui.boundContent"
+            id="ch.ethz.eventb.qualprob.ui.boundContent"
             labelProvider="ch.ethz.eventb.qualprob.ui.navigator.labelProviders.BoundLabelProvider"
             name="Bound Element"
             priority="lower">
@@ -57,7 +57,7 @@
          </triggerPoints>
          <possibleChildren>
             <instanceof
-                  value="fr.systerel.rodinextension.sample.basis.IBound">
+                  value="ch.ethz.eventb.qualprob.basis.IBound">
             </instanceof>
          </possibleChildren>
       </navigatorContent>
@@ -69,7 +69,7 @@
             viewerId="fr.systerel.explorer.navigator.view">
          <includes>
             <contentExtension
-                  pattern="fr.systerel.rodinextension.sample.ui.boundContent">
+                  pattern="ch.ethz.eventb.qualprob.ui.boundContent">
             </contentExtension></includes>
       </viewerContentBinding>
    </extension>

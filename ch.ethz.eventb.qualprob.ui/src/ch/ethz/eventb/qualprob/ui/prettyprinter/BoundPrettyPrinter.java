@@ -21,7 +21,7 @@ import org.eventb.ui.prettyprint.PrettyPrintAlignments.VerticalAlignement;
 import org.rodinp.core.IInternalElement;
 import org.rodinp.core.RodinDBException;
 
-import fr.systerel.rodinextension.sample.basis.IBound;
+import ch.ethz.eventb.qualprob.basis.IBound;
 
 public class BoundPrettyPrinter extends DefaultPrettyPrinter {
 

@@ -18,7 +18,7 @@ import org.rodinp.core.IRodinElement;
 import org.rodinp.core.RodinCore;
 import org.rodinp.core.RodinDBException;
 
-import fr.systerel.rodinextension.sample.QualProbPlugin;
+import ch.ethz.eventb.qualprob.QualProbPlugin;
 
 public class ProbabilisticAttributeManipulation implements
 		IAttributeManipulation {

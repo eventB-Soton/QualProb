@@ -15,7 +15,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eventb.core.IMachineRoot;
 import org.rodinp.core.RodinDBException;
 
-import fr.systerel.rodinextension.sample.basis.IBound;
+import ch.ethz.eventb.qualprob.basis.IBound;
 
 public class BoundContentProvider implements ITreeContentProvider {
 
