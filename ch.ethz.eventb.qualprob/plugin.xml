@@ -28,28 +28,28 @@
             id="qpConfig"
             name="Qualitative Probabilistic Reasoning Plug-in (SC &amp; POG) Configuration">
          <scModule
-               id="fr.systerel.rodinextension.sample.machineBoundModule">
+               id="ch.ethz.eventb.qualprob.machineBoundModule">
          </scModule>
          <scModule
-               id="fr.systerel.rodinextension.sample.machineBoundFreeIdentsModule">
+               id="ch.ethz.eventb.qualprob.machineBoundFreeIdentsModule">
          </scModule>
          <scModule
-               id="fr.systerel.rodinextension.sample.machineEventProbConvergenceModule">
+               id="ch.ethz.eventb.qualprob.machineEventProbConvergenceModule">
          </scModule>
          <pogModule
-               id="fr.systerel.rodinextension.sample.fwdMachineBoundModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineBoundModule">
          </pogModule>
          <pogModule
-               id="fr.systerel.rodinextension.sample.fwdMachineBoundVariantModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineBoundVariantModule">
          </pogModule>
          <pogModule
-               id="fr.systerel.rodinextension.sample.fwdMachineEventVariantModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineEventVariantModule">
          </pogModule>
          <pogModule
-               id="fr.systerel.rodinextension.sample.fwdMachineBoundFinitenessModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineBoundFinitenessModule">
          </pogModule>
          <pogModule
-               id="fr.systerel.rodinextension.sample.finPORejectingModule">
+               id="ch.ethz.eventb.qualprob.finPORejectingModule">
          </pogModule>
       </configuration>
    </extension>
@@ -65,7 +65,7 @@
             class="ch.ethz.eventb.qualprob.sc.modules.MachineBoundFreeIdentsModule"
             id="machineBoundFreeIdentsModule"
             name="Machine SC Bound Free Idents Module"
-            parent="fr.systerel.rodinextension.sample.machineBoundModule">
+            parent="ch.ethz.eventb.qualprob.machineBoundModule">
          <prereq
                id="org.eventb.core.machineVariantModule">
          </prereq>
@@ -94,7 +94,7 @@
             name="Machine POG Forward Bound Variant Relation Module"
             parent="org.eventb.core.fwdMachineEventModule">
          <prereq
-               id="fr.systerel.rodinextension.sample.fwdMachineBoundModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineBoundModule">
          </prereq>
          <prereq
                id="org.eventb.core.fwdMachineEventGuardModule">
@@ -127,7 +127,7 @@
             name="Machine POG Filter FIN PO Rejecting Module"
             parent="org.eventb.core.fwdMachineVariantModule">
          <prereq
-               id="fr.systerel.rodinextension.sample.fwdMachineBoundFinitenessModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineBoundFinitenessModule">
          </prereq>
       </filterType>
    </extension>

@@ -101,6 +101,11 @@ public class MachineBoundModule extends SCProcessorModule {
 		// variants.length == 1
 		if (pbDesc.isProbabilistic()) {
 			ITypeEnvironment typeEnv = repository.getTypeEnvironment();
+				
+			// No variant --> No bound
+			if (variants.length == 0)
+				return;
+			
 			final IVariant variant = variants[0];
 			if (!assertIsASetOrConstant(variant, typeEnv)) {
 				return;

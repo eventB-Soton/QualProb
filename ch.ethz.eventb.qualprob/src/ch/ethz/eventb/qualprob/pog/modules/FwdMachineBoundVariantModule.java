@@ -10,32 +10,20 @@
  *******************************************************************************/
 package ch.ethz.eventb.qualprob.pog.modules;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eventb.core.IPORoot;
-import org.eventb.core.IPOSource;
 import org.eventb.core.ISCEvent;
-import org.eventb.core.ISCGuard;
 import org.eventb.core.ISCMachineRoot;
 import org.eventb.core.ISCVariant;
 import org.eventb.core.ast.Expression;
-import org.eventb.core.ast.Formula;
 import org.eventb.core.ast.FormulaFactory;
 import org.eventb.core.ast.ITypeEnvironment;
 import org.eventb.core.ast.IntegerType;
-import org.eventb.core.ast.Predicate;
-import org.eventb.core.pog.IPOGPredicate;
-import org.eventb.core.pog.IPOGSource;
 import org.eventb.core.pog.POGCore;
 import org.eventb.core.pog.POGProcessorModule;
-import org.eventb.core.pog.state.IEventHypothesisManager;
 import org.eventb.core.pog.state.IPOGStateRepository;
 import org.eventb.core.tool.IModuleType;
 import org.rodinp.core.IRodinElement;
-import org.rodinp.core.RodinDBException;
 
 import ch.ethz.eventb.qualprob.QualProbPlugin;
 import ch.ethz.eventb.qualprob.basis.ISCBound;
@@ -91,18 +79,18 @@ public class FwdMachineBoundVariantModule extends POGProcessorModule {
 		if (isIntVariant != isIntBound)
 			return;
 
-		final IPORoot target = repository.getTarget();
-		final IPOGSource[] sources = new IPOGSource[] {
-				makeSource(IPOSource.DEFAULT_ROLE, scEvent.getSource()),
-				makeSource(IPOSource.DEFAULT_ROLE, scBound.getSource()),
-				makeSource(IPOSource.DEFAULT_ROLE, scVariant.getSource()) };
-		final IEventHypothesisManager eventHypothesisManager = (IEventHypothesisManager) repository
-				.getState(IEventHypothesisManager.STATE_TYPE);
-
-		final Predicate bvrPredicate = getBoundVariantPredicate(ff,
-				boundExpression, variantExpression, isIntBound);
-		
-		final List<IPOGPredicate> guards = getGuards(scEvent, typeEnv);
+//		final IPORoot target = repository.getTarget();
+//		final IPOGSource[] sources = new IPOGSource[] {
+//				makeSource(IPOSource.DEFAULT_ROLE, scEvent.getSource()),
+//				makeSource(IPOSource.DEFAULT_ROLE, scBound.getSource()),
+//				makeSource(IPOSource.DEFAULT_ROLE, scVariant.getSource()) };
+//		final IEventHypothesisManager eventHypothesisManager = (IEventHypothesisManager) repository
+//				.getState(IEventHypothesisManager.STATE_TYPE);
+//
+//		final Predicate bvrPredicate = getBoundVariantPredicate(ff,
+//				boundExpression, variantExpression, isIntBound);
+//		
+//		final List<IPOGPredicate> guards = getGuards(scEvent, typeEnv);
 //		createPO(
 //				target,// target
 //				// name
@@ -126,25 +114,25 @@ public class FwdMachineBoundVariantModule extends POGProcessorModule {
 //				monitor);
 	}
 
-	private List<IPOGPredicate> getGuards(ISCEvent scEvent,
-			ITypeEnvironment typeEnv) throws RodinDBException {
-		final ISCGuard[] guards = scEvent.getSCGuards();
-		final List<IPOGPredicate> result = new ArrayList<IPOGPredicate>();
-		for (ISCGuard scGuard : guards) {
-			final Predicate guardPredicate = scGuard.getPredicate(
-					typeEnv.getFormulaFactory(), typeEnv);
-			result.add(makePredicate(guardPredicate, scEvent.getSource()));
-		}
-		return result;
-	}
-
-	private Predicate getBoundVariantPredicate(FormulaFactory ff,
-			Expression boundExpression, Expression variantExpression,
-			boolean isIntBound) {
-		return ff.makeRelationalPredicate(
-				//
-				(isIntBound ? Formula.LE : Formula.SUBSETEQ),
-				variantExpression, boundExpression, null);
-	}
+//	private List<IPOGPredicate> getGuards(ISCEvent scEvent,
+//			ITypeEnvironment typeEnv) throws RodinDBException {
+//		final ISCGuard[] guards = scEvent.getSCGuards();
+//		final List<IPOGPredicate> result = new ArrayList<IPOGPredicate>();
+//		for (ISCGuard scGuard : guards) {
+//			final Predicate guardPredicate = scGuard.getPredicate(
+//					typeEnv.getFormulaFactory(), typeEnv);
+//			result.add(makePredicate(guardPredicate, scEvent.getSource()));
+//		}
+//		return result;
+//	}
+//
+//	private Predicate getBoundVariantPredicate(FormulaFactory ff,
+//			Expression boundExpression, Expression variantExpression,
+//			boolean isIntBound) {
+//		return ff.makeRelationalPredicate(
+//				//
+//				(isIntBound ? Formula.LE : Formula.SUBSETEQ),
+//				variantExpression, boundExpression, null);
+//	}
 
 }

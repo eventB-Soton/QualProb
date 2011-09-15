@@ -21,7 +21,7 @@ import org.rodinp.core.RodinCore;
 public class QualProbPlugin extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "fr.systerel.rodinextension.sample"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "ch.ethz.eventb.qualprob"; //$NON-NLS-1$
 
 	public static boolean DEBUG = false;
 
