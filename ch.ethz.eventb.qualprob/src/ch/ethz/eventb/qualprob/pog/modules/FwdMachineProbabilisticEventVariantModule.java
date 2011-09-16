@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eventb.core.IConvergenceElement;
 import org.eventb.core.IConvergenceElement.Convergence;
 import org.eventb.core.IEvent;
 import org.eventb.core.IPORoot;
@@ -55,15 +54,14 @@ import org.rodinp.core.RodinCore;
 import org.rodinp.core.RodinDBException;
 
 import ch.ethz.eventb.qualprob.QualProbPlugin;
-import ch.ethz.eventb.qualprob.basis.ISCBound;
 
 
 /**
  * Generation of the PRV PO
  */
-public class FwdMachineEventVariantModule extends POGProcessorModule {
+public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModule {
 
-	private static final IModuleType<FwdMachineEventVariantModule> MODULE_TYPE = POGCore
+	private static final IModuleType<FwdMachineProbabilisticEventVariantModule> MODULE_TYPE = POGCore
 			.getModuleType(QualProbPlugin.PLUGIN_ID
 					+ ".fwdMachineEventVariantModule");
 
@@ -94,33 +92,28 @@ public class FwdMachineEventVariantModule extends POGProcessorModule {
 		final IEvent event = (IEvent) scEvent.getSource();
 		final ISCMachineRoot scRoot = (ISCMachineRoot) scEvent.getRoot();
 		final FormulaFactory ff = scRoot.getFormulaFactory();
-
-		final ISCBound[] bounds = scRoot
-				.getChildrenOfType(ISCBound.ELEMENT_TYPE);
-		// if there is no Bound, we return
-		if (bounds.length != 1) {
-			return;
-		}
-		final ISCBound scBound = bounds[0];
-
-		// No PO for ordinary events
-		final Convergence eventConvergence = event.getConvergence();
-
-		if (eventConvergence == Convergence.ORDINARY) {
-			return;
-		}
-
-		// no PO for convergent events if the abstract event was convergent
-		if (eventConvergence == Convergence.ORDINARY
-				&& getAbstractConvergence(repository) == Convergence.CONVERGENT) {
-			return;
-		}
-
-		// no PO for anticipated events if there is no variant
+ 
+		// no PO if no variant.
 		final Expression varExpression = machineVariantInfo.getExpression();
-		if (concreteConvergence == IConvergenceElement.Convergence.ANTICIPATED
-				&& varExpression == null)
+		if (varExpression == null)
 			return;
+		
+		// no PO if not convergent
+		final Convergence eventConvergence = event.getConvergence();
+		if (eventConvergence != Convergence.CONVERGENT) {
+			return;
+		}
+
+		// no PO if the abstract event was convergent
+		if (getAbstractConvergence(repository) == Convergence.CONVERGENT) {
+			return;
+		}
+		
+		// no PO if this is not probabilistic
+		concreteProb = event.getAttributeValue(PROB_ATTRIBUTE);
+		if (!concreteProb) {
+			return;
+		}
 
 		final IPORoot target = repository.getTarget();
 
@@ -166,43 +159,27 @@ public class FwdMachineEventVariantModule extends POGProcessorModule {
 
 		final ArrayList<IPOGPredicate> hyp = makeActionHypothesis(varPredicate);
 
-		//final String sequentNameVAR = event.getLabel() + "/VAR";
 		eventHypothesisManager = (IEventHypothesisManager) repository
 				.getState(IEventHypothesisManager.STATE_TYPE);
 		machineHypothesisManager = (IMachineHypothesisManager) repository
 				.getState(IMachineHypothesisManager.STATE_TYPE);
 		accurate = machineHypothesisManager.machineIsAccurate()
 				&& eventHypothesisManager.eventIsAccurate();
-		concreteProb = event.getAttributeValue(PROB_ATTRIBUTE);
 
-		if (!concreteProb
-				|| concreteConvergence == IConvergenceElement.Convergence.ANTICIPATED
-				|| scBound.getExpression(ff, repository.getTypeEnvironment()) == null) {
-			// createPO(
-			// target,
-			// sequentNameVAR,
-			// IPOGNature.EVENT_VARIANT,
-			// eventHypothesisManager.getFullHypothesis(),
-			// hyp,
-			// makePredicate(varPredicate, variantSource),
-			// sources,
-			// new IPOGHint[] { getLocalHypothesisSelectionHint(target,
-			// sequentNameVAR) }, accurate, monitor);
-		} else {
-			if (andPredicate != null) {
-				final String sequentNamePRV = event.getLabel() + "/PRV";
-				Predicate probPredicate = getProbVarPredicate(ff,
-						containedFreeIdents, andPredicate, varPredicate,
-						isIntVariant);
-				probPredicate = probPredicate.flatten(ff);
+		// only generate PO if it is probabilistic
+		if (andPredicate != null) {
+			final String sequentNamePRV = event.getLabel() + "/PRV";
+			Predicate probPredicate = getProbVarPredicate(ff,
+					containedFreeIdents, andPredicate, varPredicate,
+					isIntVariant);
+			probPredicate = probPredicate.flatten(ff);
 
-				createPO(target, sequentNamePRV,
-						POGProcessorModule
-								.makeNature("Probabilistic variant of event"),
-						eventHypothesisManager.getFullHypothesis(), hyp,
-						makePredicate(probPredicate, variantSource), sources,
-						NO_HINTS, accurate, monitor);
-			}
+			createPO(target, sequentNamePRV,
+					POGProcessorModule
+							.makeNature("Probabilistic variant of event"),
+					eventHypothesisManager.getFullHypothesis(), hyp,
+					makePredicate(probPredicate, variantSource), sources,
+					NO_HINTS, accurate, monitor);
 		}
 	}
 

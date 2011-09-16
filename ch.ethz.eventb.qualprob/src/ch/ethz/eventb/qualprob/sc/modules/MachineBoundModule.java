@@ -258,8 +258,17 @@ public class MachineBoundModule extends SCProcessorModule {
 		private boolean isProbabilisticModel(IMachineRoot machineRoot)
 				throws RodinDBException {
 			for (IEvent event : machineRoot.getEvents()) {
+				// prob is true if the attribute defined and is "true".
+				boolean prob = event.hasAttribute(PROB_ATTRIBUTE);
+				if (prob) {
+					prob = event.getAttributeValue(PROB_ATTRIBUTE);
+				}
+				
+				
 				if (event.getConvergence() == Convergence.CONVERGENT
-						&& event.getAttributeValue(PROB_ATTRIBUTE)) {
+						&& prob) {
+					// event is probabilistic if convergence attribute is
+					// "Convergent" and prob is set.
 					return true;
 				}
 			}

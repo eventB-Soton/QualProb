@@ -63,7 +63,7 @@ public class MachineEventProbConvergenceModule extends SCFilterModule {
 			IProgressMonitor monitor) throws CoreException {
 
 		final IEvent event = (IEvent) element;
-		if (event.hasAttribute(PROB_ATTRIBUTE)) {
+//		if (event.hasAttribute(PROB_ATTRIBUTE)) {
 			variantInfo = (IVariantInfo) repository
 					.getState(IVariantInfo.STATE_TYPE);
 			labelSymbolTable = (ILabelSymbolTable) repository
@@ -78,14 +78,14 @@ public class MachineEventProbConvergenceModule extends SCFilterModule {
 					.getConcreteEventInfo(eventLabel);
 			checkConvergence(event, eventInfo, eventSymbolInfo);
 			return true;
-		} else {
-			createProblemMarker(event, PROB_ATTRIBUTE,
-					ProbabilisticGraphProblem.ProbConvergenceUndefError);
-			return true;
-		}
+//		} else {
+//			createProblemMarker(event, PROB_ATTRIBUTE,
+//					ProbabilisticGraphProblem.ProbConvergenceUndefError);
+//			return true;
+//		}
 	}
 
-	public void checkConvergence(IEvent event,
+	private void checkConvergence(IEvent event,
 			IConcreteEventInfo concreteEventInfo,
 			ILabelSymbolInfo eventSymbolInfo) throws CoreException {
 

@@ -104,9 +104,9 @@
          </prereq>
       </processorType>
       <processorType
-            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineEventVariantModule"
+            class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineProbabilisticEventVariantModule"
             id="fwdMachineEventVariantModule"
-            name="Machine POG Forward Event Variant Module"
+            name="Machine POG Forward Probabilistic Event Variant Module"
             parent="org.eventb.core.fwdMachineEventModule">
          <prereq
                id="org.eventb.core.fwdMachineEventCommitHypothesesModule">
