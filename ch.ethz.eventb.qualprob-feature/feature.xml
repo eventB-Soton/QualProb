@@ -23,7 +23,7 @@
 
    <requires>
       <import feature="org.eventb.ide" version="2.2.0.qualifier" match="compatible"/>
-      <import feature="ch.ethz.eventb.utils_feature" version="0.1.1.qualifier"/>
+      <import feature="ch.ethz.eventb.utils_feature" version="0.1.2.qualifier" match="compatible"/>
    </requires>
 
    <plugin
