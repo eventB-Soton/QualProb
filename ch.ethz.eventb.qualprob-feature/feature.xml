@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="ch.ethz.eventb.qualprob"
+      id="ch.ethz.eventb.qualprob_feature"
       label="%featureName"
-      version="0.1.0.qualifier"
+      version="0.2.0.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -17,8 +17,13 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="ch.ethz.eventb.utils_feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eventb.ide" version="2.2.0.qualifier" match="compatible"/>
+      <import feature="ch.ethz.eventb.utils_feature" version="0.1.1.qualifier"/>
    </requires>
 
    <plugin

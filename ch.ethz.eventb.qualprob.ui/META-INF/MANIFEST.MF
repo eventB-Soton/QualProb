@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Qualitative Probabilistic Plugin UI
 Bundle-SymbolicName: ch.ethz.eventb.qualprob.ui;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.1.0
 Bundle-Activator: ch.ethz.eventb.qualprob.ui.QualProbUIPlugin
 Require-Bundle: ch.ethz.eventb.qualprob,
  org.eclipse.ui.navigator;bundle-version="3.5.0",
