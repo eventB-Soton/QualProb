@@ -120,8 +120,7 @@ public class MachineEventProbConvergenceModule extends SCFilterModule {
 			checkAbstractProb2(concreteEventInfo);
 			checkAbsProbConvergence(concreteEventInfo);
 		}
-		if (concreteProb != origConcreteProb
-				|| !concreteEventInfo.getEvent().hasAttribute(PROB_ATTRIBUTE)) {
+		if (concreteProb != origConcreteProb) {
 			concreteEventInfo.setNotAccurate();
 		}
 		eventSymbolInfo.setAttributeValue(PROB_ATTRIBUTE, concreteProb);

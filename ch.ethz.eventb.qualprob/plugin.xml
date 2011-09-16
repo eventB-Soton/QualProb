@@ -54,6 +54,9 @@
          <pogModule
                id="ch.ethz.eventb.qualprob.varPORejectingModule">
          </pogModule>
+         <pogModule
+               id="ch.ethz.eventb.qualprob.fisPORejectingModule">
+         </pogModule>
       </configuration>
    </extension>
    <extension
@@ -138,6 +141,12 @@
             id="varPORejectingModule"
             name="Machine POG Filter VAR PO Rejecting Module"
             parent="org.eventb.core.fwdMachineEventVariantModule">
+      </filterType>
+      <filterType
+            class="ch.ethz.eventb.qualprob.pog.modules.FisPORejectingFilterModule"
+            id="fisPORejectingModule"
+            name="Machine POG Filter FIS PO Rejecting Module"
+            parent="org.eventb.core.fwdMachineEventActionModule">
       </filterType>
    </extension>
    <extension

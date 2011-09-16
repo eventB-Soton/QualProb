@@ -22,10 +22,6 @@ public class VarPORejectingFilterModule extends POGFilterModule {
 	
 	private IMachineRoot mchRoot;
 	
-	public VarPORejectingFilterModule() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public void initModule(IPOGStateRepository repository,
 			IProgressMonitor monitor) throws CoreException {
@@ -46,7 +42,7 @@ public class VarPORejectingFilterModule extends POGFilterModule {
 			if (evt.getConvergence() != Convergence.CONVERGENT)
 				return true;
 			
-			// do not accept the PO if the event is probabilistic convergent.
+			// filter the PO if the event is probabilistic convergent.
 			if (evt.hasAttribute(QualProbPlugin.PROB_ATTRIBUTE)
 					&& evt.getAttributeValue(QualProbPlugin.PROB_ATTRIBUTE)) {
 				return false;
