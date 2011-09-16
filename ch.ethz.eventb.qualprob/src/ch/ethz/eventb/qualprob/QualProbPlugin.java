@@ -12,6 +12,7 @@ package ch.ethz.eventb.qualprob;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
+import org.rodinp.core.IAttributeType;
 import org.rodinp.core.RodinCore;
 
 
@@ -23,6 +24,10 @@ public class QualProbPlugin extends Plugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "ch.ethz.eventb.qualprob"; //$NON-NLS-1$
 
+
+	public static final IAttributeType.Boolean PROB_ATTRIBUTE = RodinCore
+			.getBooleanAttrType(PLUGIN_ID + ".probabilistic");
+	
 	public static boolean DEBUG = false;
 
 	// The shared instance

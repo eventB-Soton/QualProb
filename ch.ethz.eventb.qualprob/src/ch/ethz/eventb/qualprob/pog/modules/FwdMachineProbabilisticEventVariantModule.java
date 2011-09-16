@@ -48,9 +48,7 @@ import org.eventb.core.pog.state.IMachineHypothesisManager;
 import org.eventb.core.pog.state.IMachineVariantInfo;
 import org.eventb.core.pog.state.IPOGStateRepository;
 import org.eventb.core.tool.IModuleType;
-import org.rodinp.core.IAttributeType;
 import org.rodinp.core.IRodinElement;
-import org.rodinp.core.RodinCore;
 import org.rodinp.core.RodinDBException;
 
 import ch.ethz.eventb.qualprob.QualProbPlugin;
@@ -63,10 +61,7 @@ public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModul
 
 	private static final IModuleType<FwdMachineProbabilisticEventVariantModule> MODULE_TYPE = POGCore
 			.getModuleType(QualProbPlugin.PLUGIN_ID
-					+ ".fwdMachineEventVariantModule");
-
-	public static final IAttributeType.Boolean PROB_ATTRIBUTE = RodinCore
-			.getBooleanAttrType(QualProbPlugin.PLUGIN_ID + ".probabilistic");
+					+ ".fwdMachineProbabilisticEventVariantModule");
 
 	private Convergence concreteConvergence;
 	private boolean concreteProb;
@@ -110,7 +105,10 @@ public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModul
 		}
 		
 		// no PO if this is not probabilistic
-		concreteProb = event.getAttributeValue(PROB_ATTRIBUTE);
+		concreteProb = false;
+		if (event.hasAttribute(QualProbPlugin.PROB_ATTRIBUTE)) {
+			concreteProb = event.getAttributeValue(QualProbPlugin.PROB_ATTRIBUTE);
+		}
 		if (!concreteProb) {
 			return;
 		}

@@ -43,13 +43,16 @@
                id="ch.ethz.eventb.qualprob.fwdMachineBoundVariantModule">
          </pogModule>
          <pogModule
-               id="ch.ethz.eventb.qualprob.fwdMachineEventVariantModule">
+               id="ch.ethz.eventb.qualprob.fwdMachineProbabilisticEventVariantModule">
          </pogModule>
          <pogModule
                id="ch.ethz.eventb.qualprob.fwdMachineBoundFinitenessModule">
          </pogModule>
          <pogModule
                id="ch.ethz.eventb.qualprob.finPORejectingModule">
+         </pogModule>
+         <pogModule
+               id="ch.ethz.eventb.qualprob.varPORejectingModule">
          </pogModule>
       </configuration>
    </extension>
@@ -105,7 +108,7 @@
       </processorType>
       <processorType
             class="ch.ethz.eventb.qualprob.pog.modules.FwdMachineProbabilisticEventVariantModule"
-            id="fwdMachineEventVariantModule"
+            id="fwdMachineProbabilisticEventVariantModule"
             name="Machine POG Forward Probabilistic Event Variant Module"
             parent="org.eventb.core.fwdMachineEventModule">
          <prereq
@@ -129,6 +132,12 @@
          <prereq
                id="ch.ethz.eventb.qualprob.fwdMachineBoundFinitenessModule">
          </prereq>
+      </filterType>
+      <filterType
+            class="ch.ethz.eventb.qualprob.pog.modules.VarPORejectingFilterModule"
+            id="varPORejectingModule"
+            name="Machine POG Filter VAR PO Rejecting Module"
+            parent="org.eventb.core.fwdMachineEventVariantModule">
       </filterType>
    </extension>
    <extension
