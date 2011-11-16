@@ -1,7 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Qualitative Probabilistic Reasoning Plugin
+Bundle-Name: %pluginName
 Bundle-SymbolicName: ch.ethz.eventb.qualprob;singleton:=true
+Bundle-Localization: plugin
 Bundle-Version: 0.2.0
 Bundle-Activator: ch.ethz.eventb.qualprob.QualProbPlugin
 Require-Bundle: org.eventb.core,
@@ -11,3 +12,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: ch.ethz.eventb.qualprob,
  ch.ethz.eventb.qualprob.basis
+Bundle-Vendor: %providerName
