@@ -157,5 +157,46 @@
             name="POG Machine Bound Info">
       </stateType>
    </extension>
-
+   <extension
+         point="org.rodinp.core.itemRelations">
+      <relationship
+            parentTypeId="org.eventb.core.event">
+         <attributeType
+               typeId="ch.ethz.eventb.qualprob.probabilistic">
+         </attributeType>
+      </relationship>
+      <relationship
+            parentTypeId="org.eventb.core.scEvent">
+         <attributeType
+               typeId="ch.ethz.eventb.qualprob.probabilistic">
+         </attributeType>
+      </relationship>
+      <relationship
+            parentTypeId="org.eventb.core.machineFile">
+         <childType
+               typeId="ch.ethz.eventb.qualprob.bound">
+         </childType>
+      </relationship>
+      <relationship
+            parentTypeId="org.eventb.core.scMachineFile">
+         <childType
+               typeId="ch.ethz.eventb.qualprob.scBound">
+         </childType>
+      </relationship>
+      <relationship
+            parentTypeId="ch.ethz.eventb.qualprob.bound">
+         <attributeType
+               typeId="org.eventb.core.expression">
+         </attributeType>
+      </relationship>
+      <relationship
+            parentTypeId="ch.ethz.eventb.qualprob.scBound">
+         <attributeType
+               typeId="org.eventb.core.expression">
+         </attributeType>
+         <attributeType
+               typeId="org.eventb.core.source">
+         </attributeType>
+      </relationship>
+   </extension>
 </plugin>

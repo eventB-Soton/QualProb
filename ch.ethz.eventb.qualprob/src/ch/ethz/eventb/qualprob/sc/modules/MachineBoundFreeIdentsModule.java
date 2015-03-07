@@ -10,8 +10,6 @@
  *******************************************************************************/
 package ch.ethz.eventb.qualprob.sc.modules;
 
-import static org.eventb.core.ast.LanguageVersion.V2;
-
 import java.util.Collections;
 import java.util.Set;
 
@@ -68,7 +66,7 @@ public class MachineBoundFreeIdentsModule extends SCFilterModule {
 		final IBound bound = bounds[0];
 
 		final IParseResult parseResult = factory.parseExpression(
-				bound.getExpressionString(), V2, bound);
+				bound.getExpressionString(), bound);
 
 		if (parseResult.hasProblem()) {
 			createProblemMarker(bound, EventBAttributes.EXPRESSION_ATTRIBUTE,

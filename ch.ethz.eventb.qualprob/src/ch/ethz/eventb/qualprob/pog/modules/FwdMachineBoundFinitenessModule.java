@@ -110,8 +110,7 @@ public class FwdMachineBoundFinitenessModule extends POGProcessorModule {
 		}
 		final ISCBound scBound = bounds[0];
 		final ITypeEnvironment typeEnv = repository.getTypeEnvironment();
-		final Expression expr = scBound.getExpression(
-				typeEnv.getFormulaFactory(), typeEnv);
+		final Expression expr = scBound.getExpression(typeEnv);
 		return new MachineBoundInfo(expr, scBound);
 	}
 

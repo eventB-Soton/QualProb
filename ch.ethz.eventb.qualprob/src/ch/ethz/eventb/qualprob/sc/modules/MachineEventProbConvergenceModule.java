@@ -34,7 +34,6 @@ import org.eventb.core.sc.state.ISCStateRepository;
 import org.eventb.core.sc.state.IVariantInfo;
 import org.eventb.core.tool.IModuleType;
 import org.rodinp.core.IRodinElement;
-import org.rodinp.core.RodinDBException;
 
 import ch.ethz.eventb.qualprob.QualProbPlugin;
 import ch.ethz.eventb.qualprob.basis.IBound;
@@ -135,7 +134,7 @@ public class MachineEventProbConvergenceModule extends SCFilterModule {
 
 	private void getAbstractConvergence(List<IRefinesEvent> refinesClauses,
 			List<IAbstractEventInfo> abstractEventInfos)
-			throws RodinDBException {
+			throws CoreException {
 		for (IAbstractEventInfo abstractEventInfo : abstractEventInfos) {
 			if (abstractEventInfo.getEvent().hasConvergence()) {
 				if (abstractEventInfo.getEvent().getConvergence() == Convergence.CONVERGENT) {

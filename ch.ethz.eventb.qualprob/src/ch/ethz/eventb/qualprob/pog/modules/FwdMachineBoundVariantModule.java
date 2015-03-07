@@ -67,9 +67,8 @@ public class FwdMachineBoundVariantModule extends POGProcessorModule {
 		final ISCVariant scVariant = scVariants[0];
 
 		final FormulaFactory ff = typeEnv.getFormulaFactory();
-		final Expression boundExpression = scBound.getExpression(ff, typeEnv);
-		final Expression variantExpression = scVariant.getExpression(ff,
-				typeEnv);
+		final Expression boundExpression = scBound.getExpression(typeEnv);
+		final Expression variantExpression = scVariant.getExpression(typeEnv);
 		final IntegerType integerType = ff.makeIntegerType();
 		final boolean isIntVariant = boundExpression.getType().equals(
 				integerType);

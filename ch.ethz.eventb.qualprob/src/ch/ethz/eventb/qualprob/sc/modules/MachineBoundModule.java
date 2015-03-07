@@ -22,7 +22,6 @@ import org.eventb.core.ast.Expression;
 import org.eventb.core.ast.FormulaFactory;
 import org.eventb.core.ast.IParseResult;
 import org.eventb.core.ast.ITypeEnvironment;
-import org.eventb.core.ast.LanguageVersion;
 import org.eventb.core.ast.Type;
 import org.eventb.core.sc.SCCore;
 import org.eventb.core.sc.SCProcessorModule;
@@ -183,8 +182,7 @@ public class MachineBoundModule extends SCProcessorModule {
 	private Expression getExpression(IExpressionElement element)
 			throws RodinDBException {
 		final String formula = element.getExpressionString();
-		final IParseResult result = factory.parseExpression(formula,
-				LanguageVersion.V2, element);
+		final IParseResult result = factory.parseExpression(formula, element);
 		final Expression boundExpression = result.getParsedExpression();
 		return boundExpression;
 	}
@@ -222,7 +220,7 @@ public class MachineBoundModule extends SCProcessorModule {
 			try {
 				convergent = isConvergentModel(root);
 				probabilistic = isProbabilisticModel(root);
-			} catch (RodinDBException e) {
+			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
@@ -256,7 +254,7 @@ public class MachineBoundModule extends SCProcessorModule {
 		 * @throws RodinDBException
 		 */
 		private boolean isProbabilisticModel(IMachineRoot machineRoot)
-				throws RodinDBException {
+				throws CoreException {
 			for (IEvent event : machineRoot.getEvents()) {
 				// prob is true if the attribute defined and is "true".
 				boolean prob = event.hasAttribute(PROB_ATTRIBUTE);
@@ -286,7 +284,7 @@ public class MachineBoundModule extends SCProcessorModule {
 		 * @throws RodinDBException
 		 */
 		private boolean isConvergentModel(IMachineRoot machineRoot)
-				throws RodinDBException {
+				throws CoreException {
 			for (IEvent event : machineRoot.getEvents()) {
 				if (event.getConvergence() == Convergence.CONVERGENT) {
 					return true;

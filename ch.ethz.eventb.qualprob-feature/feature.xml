@@ -2,9 +2,8 @@
 <feature
       id="ch.ethz.eventb.qualprob_feature"
       label="%featureName"
-      version="0.2.1.qualifier"
+      version="0.2.2.qualifier"
       provider-name="%providerName">
-
    <description>
       %description
    </description>

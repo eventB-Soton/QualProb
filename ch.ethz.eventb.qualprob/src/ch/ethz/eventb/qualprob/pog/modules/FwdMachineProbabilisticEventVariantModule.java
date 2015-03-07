@@ -123,12 +123,11 @@ public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModul
 			substitution.add(concreteEventActionTable.getDeltaPrime());
 		}
 
-		Expression nextVarExpression = varExpression.applyAssignments(
-				substitution, ff);
+		Expression nextVarExpression = varExpression
+				.applyAssignments(substitution);
 		substitution.clear();
 		substitution.addAll(concreteEventActionTable.getPrimedDetAssignments());
-		nextVarExpression = nextVarExpression
-				.applyAssignments(substitution, ff);
+		nextVarExpression = nextVarExpression.applyAssignments(substitution);
 
 		boolean isIntVariant = varExpression.getType().equals(
 				ff.makeIntegerType());
@@ -170,7 +169,7 @@ public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModul
 			Predicate probPredicate = getProbVarPredicate(ff,
 					containedFreeIdents, andPredicate, varPredicate,
 					isIntVariant);
-			probPredicate = probPredicate.flatten(ff);
+			probPredicate = probPredicate.flatten();
 
 			createPO(target, sequentNamePRV,
 					POGProcessorModule
@@ -228,7 +227,7 @@ public class FwdMachineProbabilisticEventVariantModule extends POGProcessorModul
 
 		final Predicate existPredicate = ff.makeAssociativePredicate(
 				Formula.LAND, predicates, null);
-		final Predicate boundExistPredicate = existPredicate.bindTheseIdents(freeIdents, ff);
+		final Predicate boundExistPredicate = existPredicate.bindTheseIdents(freeIdents);
 
 		// Generate bound identifier declarations.
 		final int size = freeIdents.size();

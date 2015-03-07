@@ -76,8 +76,8 @@ public class FwdMachineBoundModule extends POGProcessorModule {
 		
 		final ITypeEnvironment typeEnv = repository.getTypeEnvironment();
 		final FormulaFactory ff = typeEnv.getFormulaFactory();
-		final Predicate wdPredicate = boundInfo.getExpression().getWDPredicate(
-				ff);
+		final Predicate wdPredicate = boundInfo.getExpression()
+				.getWDPredicate();
 		final ISCBound scBound = boundInfo.getBound();
 
 		final IPOGSource[] sources = new IPOGSource[] { makeSource(
@@ -111,8 +111,7 @@ public class FwdMachineBoundModule extends POGProcessorModule {
 
 		final ISCBound scBound = bounds[0];
 		final ITypeEnvironment typeEnv = repository.getTypeEnvironment();
-		final Expression expr = scBound.getExpression(
-				typeEnv.getFormulaFactory(), typeEnv);
+		final Expression expr = scBound.getExpression(typeEnv);
 		repository.setState(new MachineBoundInfo(expr, scBound));
 	}
 
@@ -132,7 +131,7 @@ public class FwdMachineBoundModule extends POGProcessorModule {
 				final Type baseType = type.getBaseType();
 				if (baseType == null)
 					return false;
-				final Expression typeExpression = baseType.toExpression(ff);
+				final Expression typeExpression = baseType.toExpression();
 				if (expression.equals(typeExpression))
 					return true;
 				break;
