@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: ch.ethz.eventb.qualprob.ui;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 0.1.1
+Bundle-Version: 0.1.1.qualifier
 Bundle-Activator: ch.ethz.eventb.qualprob.ui.QualProbUIPlugin
 Require-Bundle: ch.ethz.eventb.qualprob,
  org.eclipse.ui.navigator;bundle-version="3.5.0",
