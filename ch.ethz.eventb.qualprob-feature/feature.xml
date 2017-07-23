@@ -2,7 +2,7 @@
 <feature
       id="ch.ethz.eventb.qualprob_feature"
       label="%featureName"
-      version="0.2.3.qualifier"
+      version="0.2.4.release"
       provider-name="%providerName"
       license-feature="org.rodinp.license"
       license-feature-version="1.0.0.qualifier">
@@ -50,5 +50,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="ch.ethz.eventb.qualprob.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

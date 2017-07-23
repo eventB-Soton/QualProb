@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: ch.ethz.eventb.qualprob;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 0.2.2.qualifier
+Bundle-Version: 0.2.2.release
 Bundle-Activator: ch.ethz.eventb.qualprob.QualProbPlugin
 Require-Bundle: ch.ethz.eventb.utils;bundle-version="0.1.4",
  org.rodinp.core;bundle-version="1.7.0",

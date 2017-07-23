@@ -9,9 +9,13 @@ This package provides supports for qualitative probability reasoning
 
 The complete source code of the package can be downloaded as a zip file *ch.ethz.eventb.qualprob\_x.x.x.zip*
 
-Change Logs
+Release History
 ===========
+
+Version 0.2.4 - Branding
+-------------
+* Branding 0.0.1: Initial version
 
 Version 0.2.3
 -------------
-- Publish the SDK feature of the package.
+* Publish the SDK feature of the package.
