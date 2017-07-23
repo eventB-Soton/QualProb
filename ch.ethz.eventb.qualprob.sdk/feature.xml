@@ -2,8 +2,9 @@
 <feature
       id="ch.ethz.eventb.qualprob.sdk"
       label="%featureName"
-      version="0.2.3.qualifier"
+      version="0.2.4.qualifier"
       provider-name="%featureVendor"
+      plugin="ch.ethz.eventb.qualprob.branding"
       license-feature="org.rodinp.license"
       license-feature-version="1.0.0.qualifier">
 
@@ -19,22 +20,16 @@
       [Enter License Description here.]
    </license>
 
+   <url>
+      <update label="%updateSiteName" url="http://rodin-b-sharp.sourceforge.net/updates"/>
+   </url>
+
    <includes
          id="ch.ethz.eventb.qualprob_feature"
          version="0.0.0"/>
 
-   <plugin
+   <includes
          id="ch.ethz.eventb.qualprob.source"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ch.ethz.eventb.qualprob.ui.source"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
